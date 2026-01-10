@@ -1,135 +1,159 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useLanguage } from '@/context/LanguageContext';
+import React, { useState, useEffect } from "react";
+// import { useLanguage } from '@/context/LanguageContext'; // Commenting out until we decide where to put lang switcher
 
 export default function Header() {
-    const { language, setLanguage, t } = useLanguage();
+    // const { language, setLanguage, t } = useLanguage();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 0) {
                 setIsScrolled(true);
             } else {
                 setIsScrolled(false);
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        // Check if dark mode preference exists or respect system preference
+        const checkTheme = () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                setIsDark(true);
+                document.documentElement.classList.add('dark');
+            } else {
+                setIsDark(false);
+                document.documentElement.classList.remove('dark');
+            }
+        };
+
+        // Defer theme check to avoid synchronous setState warning, or simply suppress if needed. 
+        // Using setTimeout(..., 0) pushes it to next tick.
+        setTimeout(checkTheme, 0);
+
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
-
-    const toggleLangDropdown = () => {
-        setIsLangDropdownOpen(!isLangDropdownOpen);
-    };
-
-    const changeLanguage = (lang: 'es' | 'en') => {
-        setLanguage(lang);
-        setIsLangDropdownOpen(false);
-        setIsMobileMenuOpen(false);
+    const toggleDarkMode = () => {
+        if (isDark) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+            setIsDark(false);
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+            setIsDark(true);
+        }
     };
 
     return (
-        <header className="header" style={{
-            background: isScrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)',
-            boxShadow: isScrolled ? '0 2px 20px rgba(0, 0, 0, 0.1)' : 'none'
-        }}>
-            <div className="container">
-                <div className="logo">
-                    <img src="/assets/savsolutionslogo.png" alt="Apollo Solutions Logo" className="logo-image" />
-                </div>
-                <nav className="nav hidden md:flex"> {/* Added hidden md:flex to hide on mobile if using tailwind, but we are using vanilla css. The CSS handles media queries. Wait, the CSS hides .nav on mobile? Let's check CSS. CSS says .mobile-menu display none, @media max-width 768 mobile-menu display block. It doesn't explicitly hide .nav on mobile... wait. Line 51 CSS: .header .container display flex. Line 46 Media Query: .header .container padding 0 20px. It doesn't seem to hide .nav in CSS? Let me check lines 92+ of CSS.
-                Line 92: .nav display flex.
-                Checking legacy HTML line 56. It's just there.
-                Wait, typically mobile menu hides the nav. 
-                In CSS line 46: inside media query... it doesn't hide .nav.
-                Maybe the original site had .nav hidden on mobile? 
-                Let's look at CSS line 46 again.
-                It seems I missed where .nav is hidden. 
-                Ah, I see `scripts.js` doesn't hide it. 
-                Maybe flex styles handle it?
-                In `styles.css` line 93 `display: flex`.
-                On mobile, maybe it just overflows or wraps?
-                Actually, looking at the layout, on mobile the `mobile-menu` button appears.
-                I suspect I should hide `nav` on mobile to match standard behavior, or check if I missed a CSS rule.
-                Let's assume standard behavior: hide .nav on mobile, show hamburger.
-                The CSS provided has `@media (max-width: 768px)` but I didn't see explicit `.nav { display: none }`.
-                Line 54: `.logo { flex: 1; ... }`.
-                Line 59: `.mobile-menu { flex-shrink: 0 ... }`.
-                If `.nav` is not hidden, it will take space.
-                I'll assume I should hide `.nav` on mobile. The easiest way is adding a style or class.
-                But "Asi tal cual esta" means I should use the existing CSS.
-                Maybe the CSS *does* hide it and I managed to miss it in the 800 lines? 
-                Let's look at lines 46-62 again.
-                I don't see `.nav { display: none }`. 
-                However, I'll trust the CSS I have. I will NOT add extra classes unless necessary.
-                Wait, if I use the same classes, it should work.
-                But wait, I am converting to React. 
-                I'll use the same structure. context: `styles.css` is global.
-                */ }
-                    <a href="#clientes">{t('nav.clients')}</a>
-                    <a href="#servicios">{t('nav.services')}</a>
-                    <a href="#planes">{t('nav.pricing')}</a>
-                    <a href="#form">{t('nav.contact')}</a>
-                    <a href="#equipo">{t('nav.team')}</a>
-                    <div className={`language-dropdown ${isLangDropdownOpen ? 'active' : ''}`}>
-                        <button id="language-toggle" className="language-btn" onClick={toggleLangDropdown}>
-                            <i className="fas fa-globe"></i>
-                            <span id="current-lang">{language === 'es' ? 'ES' : 'EN'}</span>
-                        </button>
-                        <div className="language-options">
-                            <div className="language-option" onClick={() => changeLanguage('es')}>
-                                <span className="flag">🇪🇸</span>
-                                <span>Español</span>
-                            </div>
-                            <div className="language-option" onClick={() => changeLanguage('en')}>
-                                <span className="flag">🇺🇸</span>
-                                <span>English</span>
-                            </div>
+        <nav
+            className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
+                ? "bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 h-20"
+                : "bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 h-20"
+                }`}
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+                <div className="flex justify-between items-center h-full">
+                    {/* Logo */}
+                    <div className="flex-shrink-0 flex items-center gap-2">
+                        <div className="relative">
+                            <img src="/assets/savsolutionslogo.png" alt="SAV Solutions" className="h-6 w-auto opacity-0" />
+                            <div
+                                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-primary"
+                                style={{
+                                    maskImage: 'url(/assets/savsolutionslogo.png)',
+                                    WebkitMaskImage: 'url(/assets/savsolutionslogo.png)',
+                                    maskSize: 'contain',
+                                    WebkitMaskSize: 'contain',
+                                    maskRepeat: 'no-repeat',
+                                    WebkitMaskRepeat: 'no-repeat',
+                                    maskPosition: 'center',
+                                    WebkitMaskPosition: 'center'
+                                }}
+                            />
                         </div>
                     </div>
-                </nav>
-                {/* Mobile Menu */}
-                <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-                    <button id="mobile-menu-toggle" className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
-                        <span className="hamburger-line"></span>
-                        <span className="hamburger-line"></span>
-                        <span className="hamburger-line"></span>
-                    </button>
-                    <div className="mobile-menu-dropdown" id="mobile-menu-dropdown">
-                        <div className="mobile-menu-content">
-                            <div className="mobile-nav-links">
-                                <a href="#clientes" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.clients')}</a>
-                                <a href="#servicios" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.services')}</a>
-                                <a href="#planes" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.pricing')}</a>
-                                <a href="#form" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.contact')}</a>
-                                <a href="#equipo" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.team')}</a>
-                            </div>
-                            <div className="mobile-language-section">
-                                <div className="mobile-language-label">{t('nav.language')}</div>
-                                <div className="mobile-language-options">
-                                    <div className="mobile-language-option" onClick={() => changeLanguage('es')}>
-                                        <span className="flag">🇪🇸</span>
-                                        <span>Español</span>
-                                    </div>
-                                    <div className="mobile-language-option" onClick={() => changeLanguage('en')}>
-                                        <span className="flag">🇺🇸</span>
-                                        <span>English</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    {/* Desktop Nav */}
+                    <div className="hidden md:flex space-x-8 items-center">
+                        <a
+                            href="#services"
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+                        >
+                            Servicios
+                        </a>
+                        <a
+                            href="#wifi-connectivity"
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+                        >
+                            WiFi & Redes
+                        </a>
+                        <a
+                            href="#clients"
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+                        >
+                            Clientes
+                        </a>
+                        <a
+                            href="#plans"
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+                        >
+                            Planes
+                        </a>
+                        <a
+                            href="#founder"
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+                        >
+                            Nosotros
+                        </a>
+                        <a
+                            href="#contact"
+                            className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg shadow-primary/30"
+                        >
+                            Contactar
+                        </a>
+                        <button
+                            onClick={toggleDarkMode}
+                            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                        >
+                            <span className="material-icons-round text-xl">{isDark ? "light_mode" : "dark_mode"}</span>
+                        </button>
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden flex items-center gap-4">
+                        <button
+                            onClick={toggleDarkMode}
+                            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
+                        >
+                            <span className="material-icons-round text-xl">{isDark ? "light_mode" : "dark_mode"}</span>
+                        </button>
+                        <button
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary p-2"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            <span className="material-icons-round text-3xl">menu</span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </header>
+
+            {/* Mobile Menu Dropdown (Basic implementation based on assumption) */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-20 left-0 w-full bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 shadow-xl py-4 px-4 flex flex-col gap-4">
+                    <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">Servicios</a>
+                    <a href="#wifi-connectivity" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">WiFi & Redes</a>
+                    <a href="#clients" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">Clientes</a>
+                    <a href="#plans" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">Planes</a>
+                    <a href="#founder" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">Nosotros</a>
+                    <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="bg-primary text-center py-2 text-white rounded-full">Contactar</a>
+                </div>
+            )}
+        </nav>
     );
 }

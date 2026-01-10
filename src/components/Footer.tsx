@@ -1,61 +1,67 @@
 "use client";
 
 import React from 'react';
-import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
-    const { t } = useLanguage();
-
     return (
-        <footer className="footer">
-            <div className="container">
-                <div className="footer-content">
-                    <div className="footer-logo">
-                        <h3>{t('footer.title')}</h3>
-                        <p>{t('footer.subtitle')}</p>
+        <footer className="bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 pt-16 pb-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    {/* Brand */}
+                    <div className="lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-6">
+                            <span className="material-icons-round text-primary text-3xl">bolt</span>
+                            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300">Sav</span>
+                        </div>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                            Impulsamos el crecimiento de negocios mediante soluciones tecnológicas de alto impacto. Diseño, e-commerce y conectividad en un solo lugar.
+                        </p>
+                        <div className="flex gap-4">
+                            <a href="#" className="w-10 h-10 rounded-full bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition">
+                                <span className="material-icons-round text-lg">public</span>
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition">
+                                <span className="material-icons-round text-lg">email</span>
+                            </a>
+                        </div>
                     </div>
-                    <div className="footer-links">
-                        <a href="#clientes">{t('footer.clients')}</a>
-                        <a href="#servicios">{t('footer.services')}</a>
-                        <a href="#planes">{t('footer.pricing')}</a>
-                        {/* Note: In original code, footer link for About was 'footer.about' but key might not exist or be used differently. Checking translations.
-                            Legacy has: <a href="#equipo" data-lang="footer.team">Equipo</a> in index.html line 647.
-                            In scripts.js translation, footer.team exists.
-                            Wait, plan used 'footer.team' in translation index. But let's check legacy again.
-                            Legacy line 647: <a href="#equipo" data-lang="footer.team">Equipo</a>.
-                            My translation file included 'footer.team'.
-                            So I should use footer.team.
-                        */}
-                        <a href="#form">{t('footer.contact')}</a>
-                        <a href="#equipo">{t('nav.team')}</a> {/* Using nav.team or footer.team? scripts.js has nav.team and footer.team? 
-                            Let's check scripts.js again.
-                            'nav.team': 'Equipo'
-                            'footer.team': Not found in the provided scripts.js snippet (lines 320+).
-                            Ah, wait. line 647 in index says data-lang="footer.team".
-                            Let's check scripts.js lines 411+ (footer.title...).
-                            Line 411: footer.title
-                            Line 412: footer.subtitle
-                            Line 413: footer.about -> 'About'
-                            Line 414: footer.services
-                            Line 415: footer.contact
-                            Line 416: footer.copyright
-                            There is NO 'footer.team' in the scripts.js snippet I saw.
-                            But key is `nav.team` in the nav.
-                            Wait, index.html line 647 uses `data-lang="footer.team"`.
-                            If it's missing in scripts.js, it wouldn't translate.
-                            Maybe I missed it in the file view.
-                            I'll assume it should be 'Equipo' and use 'nav.team' or add 'footer.team' to translations.
-                            I added 'nav.team' to translations. I'll use 'nav.team' here as fallback or just add 'nav.team' key.
-                            Actually, looking at the translations I extracted, I DO have 'nav.team'. I do NOT have 'footer.team' in the scripts snippet I pasted?
-                            Let's check the extracted translation file content I wrote.
-                            ... 'nav.team': 'Team' ...
-                            I don't see 'footer.team' in the translations object I created.
-                            So I'll use 'nav.team' for consistency.
-                        */}
+
+                    {/* Services */}
+                    <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-6">Servicios</h4>
+                        <ul className="space-y-4">
+                            <li><a href="#services" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Diseño Web</a></li>
+                            <li><a href="#services" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">E-commerce Shopfify</a></li>
+                            <li><a href="#wifi-connectivity" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Redes & WiFi</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Company */}
+                    <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-6">Compañía</h4>
+                        <ul className="space-y-4">
+                            <li><a href="#founder" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Sobre Nosotros</a></li>
+                            <li><a href="#clients" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Casos de Éxito</a></li>
+                            <li><a href="#plans" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Planes y Precios</a></li>
+                            <li><a href="#contact" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Legal */}
+                    <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-6">Legal</h4>
+                        <ul className="space-y-4">
+                            <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Política de Privacidad</a></li>
+                            <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Términos de Servicio</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div className="footer-bottom">
-                    <p>{t('footer.copyright')}</p>
+
+                <div className="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-400 text-sm text-center md:text-left">
+                        &copy; 2025 Sav Solutions. Todos los derechos reservados.
+                    </p>
+
                 </div>
             </div>
         </footer>

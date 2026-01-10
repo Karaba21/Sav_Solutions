@@ -1,90 +1,35 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
+import React from 'react';
 
 export default function Hero() {
-    const { t, language } = useLanguage();
-    const [displayedTitle, setDisplayedTitle] = useState('');
-
-    // Typing effect for title (only for Spanish as per original script)
-    useEffect(() => {
-        if (language === 'es') {
-            const text = t('hero.title');
-            setDisplayedTitle('');
-            let i = 0;
-            const timer = setInterval(() => {
-                if (i < text.length) {
-                    setDisplayedTitle((prev) => prev + text.charAt(i));
-                    i++;
-                } else {
-                    clearInterval(timer);
-                }
-            }, 100);
-            return () => clearInterval(timer);
-        } else {
-            setDisplayedTitle(t('hero.title'));
-        }
-    }, [language, t]);
-
-    // Parallax effect logic (simplified reacting to window scroll)
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            const heroVisuals = document.querySelector('.hero-visuals') as HTMLElement;
-            const backgroundLines = document.querySelector('.background-lines') as HTMLElement;
-
-            if (heroVisuals) {
-                heroVisuals.style.transform = `translate(-50%, -50%) translateY(${rate}px)`;
-            }
-            if (backgroundLines) {
-                backgroundLines.style.transform = `translateY(${rate * 0.3}px)`;
-            }
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
-        <section className="hero">
-            <div className="container">
-                <div className="hero-content">
-                    <h1 className="hero-title">{displayedTitle}</h1>
-                    <p className="hero-subtitle">{t('hero.subtitle')}</p>
-                    <a href="#form" className="btn-primary">{t('hero.contact')}</a>
-                </div>
-                <div className="hero-visuals">
-                    <div className="phone-3d">
-                        <div className="phone-screen">
-                            <div className="app-icons">
-                                <div className="icon"></div>
-                                <div className="icon"></div>
-                                <div className="icon"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="desktop-3d">
-                        <div className="desktop-screen">
-                            <div className="chart">
-                                <div className="bar bar1"></div>
-                                <div className="bar bar2"></div>
-                                <div className="bar bar3"></div>
-                            </div>
-                            <div className="sidebar">
-                                <div className="btn btn-blue"></div>
-                                <div className="btn btn-blue"></div>
-                                <div className="btn btn-pink"></div>
-                            </div>
-                        </div>
-                    </div>
+        <header className="relative bg-deep-blue dark:bg-slate-900 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
+                <div className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-primary blur-[120px]"></div>
+                <div className="absolute top-[20%] -left-[10%] w-[40%] h-[40%] rounded-full bg-blue-500 blur-[100px]"></div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white tracking-tight leading-tight mb-6">
+                    Construyendo tus <br className="hidden md:block" />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-primary">Cimientos Digitales</span>
+                </h1>
+
+                <p className="mt-4 max-w-2xl mx-auto text-xl text-blue-100/90 leading-relaxed">
+                    Desarrollo web funcional, e-commerce escalable y ahora con soluciones de conectividad WiFi adaptadas a las necesidades de tu empresa.
+                </p>
+
+                <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition transform hover:-translate-y-1 shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+                        Empezar Ahora
+                        <span className="material-icons-round">arrow_forward</span>
+                    </a>
+                    <a href="#services" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-full font-semibold text-lg transition flex items-center justify-center gap-2">
+                        Ver Servicios
+                    </a>
                 </div>
             </div>
-            <div className="background-lines">
-                <div className="line line1"></div>
-                <div className="line line2"></div>
-                <div className="line line3"></div>
-            </div>
-        </section>
+        </header>
     );
 }
