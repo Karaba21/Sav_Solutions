@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 // import { useLanguage } from '@/context/LanguageContext'; // Commenting out until we decide where to put lang switcher
 
 export default function Header() {
     // const { language, setLanguage, t } = useLanguage();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isDark, setIsDark] = useState(false);
+    // const [isDark, setIsDark] = useState(false); // Removed theme toggle logic
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,37 +19,9 @@ export default function Header() {
             }
         };
 
-        // Check if dark mode preference exists or respect system preference
-        const checkTheme = () => {
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                setIsDark(true);
-                document.documentElement.classList.add('dark');
-            } else {
-                setIsDark(false);
-                document.documentElement.classList.remove('dark');
-            }
-        };
-
-        // Defer theme check to avoid synchronous setState warning, or simply suppress if needed. 
-        // Using setTimeout(..., 0) pushes it to next tick.
-        setTimeout(checkTheme, 0);
-
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    const toggleDarkMode = () => {
-        if (isDark) {
-            document.documentElement.classList.remove('dark');
-            localStorage.theme = 'light';
-            setIsDark(false);
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.theme = 'dark';
-            setIsDark(true);
-        }
-    };
 
     return (
         <nav
@@ -117,27 +90,21 @@ export default function Header() {
                         >
                             Contactar
                         </a>
-                        <button
+                        {/* <button
                             onClick={toggleDarkMode}
                             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
                         >
                             <span className="material-icons-round text-xl">{isDark ? "light_mode" : "dark_mode"}</span>
-                        </button>
+                        </button> */}
                     </div>
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center gap-4">
                         <button
-                            onClick={toggleDarkMode}
-                            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition"
-                        >
-                            <span className="material-icons-round text-xl">{isDark ? "light_mode" : "dark_mode"}</span>
-                        </button>
-                        <button
                             className="text-gray-600 dark:text-gray-300 hover:text-primary p-2"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
-                            <span className="material-icons-round text-3xl">menu</span>
+                            {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                         </button>
                     </div>
                 </div>
@@ -145,7 +112,7 @@ export default function Header() {
 
             {/* Mobile Menu Dropdown (Basic implementation based on assumption) */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-20 left-0 w-full bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 shadow-xl py-4 px-4 flex flex-col gap-4">
+                <div className="md:hidden absolute top-20 left-0 w-full bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 shadow-xl py-4 px-4 flex flex-col gap-4 rounded-b-3xl">
                     <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">Servicios</a>
                     <a href="#wifi-connectivity" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">WiFi & Redes</a>
                     <a href="#clients" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-300 font-medium">Clientes</a>

@@ -13,7 +13,7 @@ export default function WifiConnectivity() {
                     <div className="relative order-2 lg:order-1">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 aspect-[4/3] group">
                             <img
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX9ONg6C5WU_ik6lal6uHAkBJg9xctMMyTdA_G6zMW4d2_mUNqTqTKHaud2fo4pul6SlDChJIda2sBzOBlyqZhJ7td3SZCztFam-IcIAAFZ7i0Y-ap-wjX9i-IsVSP3dPftT2wWQYVJu9m_YP3WO6XAt2outeogbOMp3TW_1G_aGWXR9366Ba8yaLvd1Nl_ImiEWJ6SVz2njsncNhR_nPUZ_L3yPRK_FQAQ4Jd08ZXTBzL7WwbLM0ZBncuK6AS6vxNYzl9Z1UwjLk"
+                                src="/assets/router.png"
                                 alt="Configuración WiFi Profesional"
                                 className="object-cover w-full h-full transform transition duration-700 group-hover:scale-105 filter brightness-90"
                             />
