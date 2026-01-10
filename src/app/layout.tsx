@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://savsolutionsuy.com"),
   title: "Sav Solutions - Soluciones web a tu medida",
   description: "Desarrollo de páginas web funcionales y adaptadas a tu marca. Soluciones digitales para emprendimientos y pequeñas empresas.",
   icons: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Sav Solutions",
     images: [
       {
-        url: "https://savsolutionsuy.com/assets/ogimagesav.jpeg",
+        url: "/assets/ogimage.png",
         width: 1200,
         height: 630,
       },
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sav Solutions - Soluciones web a tu medida",
     description: "Desarrollo de páginas web funcionales y adaptadas a tu marca. Soluciones digitales para emprendimientos y pequeñas empresas.",
-    images: ["https://savsolutionsuy.com/assets/ogimagesav.jpeg"],
+    images: ["/assets/ogimage.png"],
   },
 };
 
