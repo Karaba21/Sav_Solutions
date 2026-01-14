@@ -34,6 +34,10 @@ export default function Pricing() {
                                 <span className="material-icons-round text-primary text-lg mr-2">check</span>
                                 Diseño responsive
                             </li>
+                            <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
+                                <span className="material-icons-round text-primary text-lg mr-2">check</span>
+                                Mantenimiento mensual 40usd (opcional)
+                            </li>
                         </ul>
                         <button className="w-full py-3 rounded-xl border border-primary text-primary font-medium hover:bg-primary hover:text-white transition">
                             Solicitar info
@@ -59,6 +63,10 @@ export default function Pricing() {
                             </li>
                             <li className="flex items-start text-sm text-indigo-100">
                                 <span className="material-icons-round text-white text-lg mr-2">check</span>
+                                Configuración hosting/dominio
+                            </li>
+                            <li className="flex items-start text-sm text-indigo-100">
+                                <span className="material-icons-round text-white text-lg mr-2">check</span>
                                 Configuración completa
                             </li>
                             <li className="flex items-start text-sm text-indigo-100">
@@ -67,7 +75,7 @@ export default function Pricing() {
                             </li>
                             <li className="flex items-start text-sm text-indigo-100">
                                 <span className="material-icons-round text-white text-lg mr-2">check</span>
-                                Mantenimiento mensual opcional
+                                Mantenimiento mensual 40usd (opcional)
                             </li>
                         </ul>
                         <button className="w-full py-3 rounded-xl bg-white text-primary font-bold hover:bg-gray-100 transition shadow-lg">
@@ -91,11 +99,19 @@ export default function Pricing() {
                             </li>
                             <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
                                 <span className="material-icons-round text-primary text-lg mr-2">check</span>
+                                Configuración hosting/dominio
+                            </li>
+                            <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
+                                <span className="material-icons-round text-primary text-lg mr-2">check</span>
                                 Integración E-commerce
                             </li>
                             <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
                                 <span className="material-icons-round text-primary text-lg mr-2">check</span>
                                 Base de datos / Supabase
+                            </li>
+                            <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
+                                <span className="material-icons-round text-primary text-lg mr-2">check</span>
+                                Integración Brevo (email marketing y automatizaciones)
                             </li>
                             <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
                                 <span className="material-icons-round text-primary text-lg mr-2">check</span>
@@ -109,7 +125,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Additional Info / Disclaimers */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
                     <div className="bg-indigo-50 dark:bg-gray-800 p-5 rounded-2xl flex gap-4">
                         <div className="flex-shrink-0">
                             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
@@ -118,7 +134,7 @@ export default function Pricing() {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 dark:text-white text-sm">Incluido en el precio</h4>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">El valor del plan cubre la configuración inicial de hosting y dominio, además del diseño y puesta en línea.</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">El plan incluye el diseño, desarrollo y configuración inicial del sitio web, puesta en línea y soporte en el proceso de publicación.</p>
                         </div>
                     </div>
 
@@ -130,7 +146,7 @@ export default function Pricing() {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 dark:text-white text-sm">Costos adicionales</h4>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">El hosting y dominio no están incluidos en el precio del plan. Se pagan directamente al proveedor.</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">El hosting y dominio no están incluidos en el precio del plan.</p>
                         </div>
                     </div>
 
@@ -143,6 +159,17 @@ export default function Pricing() {
                         <div>
                             <h4 className="font-bold text-gray-900 dark:text-white text-sm">WiFi & Redes</h4>
                             <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Cotización a medida según la superficie del local y la cantidad de dispositivos a conectar.</p>
+                        </div>
+                    </div>
+                    <div className="bg-indigo-50 dark:bg-gray-800 p-5 rounded-2xl flex gap-4">
+                        <div className="flex-shrink-0">
+                            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                                <span className="material-icons-round text-sm">shopping_cart</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-900 dark:text-white text-sm">Plan Business</h4>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">El Business Plan es flexible. Puede incluir uno o varios de los servicios listados. El precio es el mismo independientemente de la cantidad de servicios implementados.</p>
                         </div>
                     </div>
                 </div>

@@ -50,9 +50,6 @@ export default function Founder() {
                                 <span className="material-icons-round">work</span>
                                 Conectar en LinkedIn
                             </a>
-                            <a href="#contact" className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                                Agendar Reunión
-                            </a>
                         </div>
 
 

@@ -105,6 +105,7 @@ export default function Contact() {
 
                     {/* Info / Calendar Side */}
                     <div className="flex flex-col justify-center space-y-8">
+                        {/* 
                         <div className="bg-blue-600 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden group">
                             <div className="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition duration-700"></div>
                             <div className="absolute bottom-0 left-0 -ml-10 -mb-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
@@ -116,7 +117,8 @@ export default function Contact() {
                                 <span className="material-icons-round">calendar_today</span>
                                 Agendar en Calendly
                             </a>
-                        </div>
+                        </div> 
+                        */}
 
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
@@ -125,13 +127,13 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-gray-900 dark:text-white">Email</h4>
-                                    <a href="mailto:hola@savsolutions.com" className="text-gray-600 dark:text-gray-400 hover:text-primary transition">hola@savsolutions.com</a>
+                                    <a href="mailto:agustin.karabajich@gmail.com" className="text-gray-600 dark:text-gray-400 hover:text-primary transition">agustin.karabajich@gmail.com</a>
                                 </div>
                             </div>
 
                             <div className="flex items-start gap-4">
                                 <div className="w-12 h-12 rounded-2xl bg-white dark:bg-surface-dark shadow-md flex items-center justify-center text-green-500 flex-shrink-0">
-                                    <span className="material-icons-round">whatsapp</span>
+                                    <i className="fa-brands fa-whatsapp text-2xl"></i>
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-gray-900 dark:text-white">WhatsApp</h4>

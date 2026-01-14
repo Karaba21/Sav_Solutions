@@ -38,7 +38,6 @@ export default function Services() {
                         </div>
                         <div className="flex items-center justify-between mb-3">
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">E-commerce</h3>
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium dark:bg-green-900 dark:text-green-300">Shopify Partner</span>
                         </div>
                         <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                             Tiendas online robustas y fáciles de gestionar. Integración de pasarelas de pago y gestión de inventario automatizada.
@@ -72,7 +71,7 @@ export default function Services() {
                             <div className="flex-grow">
                                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Integraciones y Automatización</h3>
                                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                    Conectamos tu negocio con herramientas poderosas como <strong>Supabase</strong> para bases de datos, <strong>Calendly</strong> para reservas y sistemas CRM personalizados para gestionar tus clientes.
+                                    Conectamos tu negocio con herramientas poderosas como <strong>Supabase</strong> para bases de datos, <strong>Calendly</strong> para reservas y <strong>Brevo</strong> para email marketing.
                                 </p>
                             </div>
                             <a href="#" className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-5 py-3 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition flex-shrink-0 w-full md:w-auto text-center">
