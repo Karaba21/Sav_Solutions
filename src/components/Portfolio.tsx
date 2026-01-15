@@ -65,7 +65,6 @@ export default function Portfolio() {
                                     <p className="text-orange-500 font-bold tracking-wider text-sm uppercase mb-2 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-75">Impacto</p>
                                     <h4 className="text-4xl font-extrabold text-white mb-1 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-100">x3</h4>
                                     <p className="text-gray-300 text-sm mb-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-100">Ventas Online</p>
-                                    <span className="px-4 py-2 bg-white/10 rounded-full text-xs font-medium text-white border border-white/20">Shopify Expert</span>
                                 </div>
                             </div>
 
@@ -96,9 +95,7 @@ export default function Portfolio() {
 
                                 <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
                                     <p className="text-orange-500 font-bold tracking-wider text-sm uppercase mb-2 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-75">Impacto</p>
-                                    <h4 className="text-4xl font-extrabold text-white mb-1 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-100">x3</h4>
-                                    <p className="text-gray-300 text-sm mb-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-100">Ventas Online</p>
-                                    <span className="px-4 py-2 bg-white/10 rounded-full text-xs font-medium text-white border border-white/20">Shopify Expert</span>
+                                    <p className="text-gray-300 text-sm mb-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-100">Mayor captacion de leads</p>
                                 </div>
                             </div>
 
