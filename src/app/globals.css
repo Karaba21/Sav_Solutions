@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #8b5cf6;
-    --color-primary-dark: #7c3aed;
-    --color-background-light: #f9fafb;
+    /* ── Brand Colors ─────────────────────────────────────────────── */
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-primary-light: #eff6ff;
+
+    --color-background-light: #f8f8ff;
     --color-background-dark: #0f172a;
     --color-surface-light: #ffffff;
     --color-surface-dark: #1e293b;
     --color-card-dark: #1e293b;
-    --color-deep-blue: #172554;
+    --color-deep-blue: #0f172a;
 
-    --font-display: Inter, sans-serif;
-    --font-body: Inter, sans-serif;
+    /* ── Fonts ────────────────────────────────────────────────────── */
+    --font-display: var(--font-montserrat), sans-serif;
+    --font-body: var(--font-inter), sans-serif;
+    --font-sans: var(--font-inter), sans-serif;
+    --font-inter: var(--font-inter), sans-serif;
+    --font-montserrat: var(--font-montserrat), sans-serif;
 
     --radius-DEFAULT: 1rem;
 
@@ -24,13 +31,31 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
+    /* Hero lavender-blue background gradient (matches reference) */
+    .hero-bg {
+        background: linear-gradient(160deg, #eef2ff 0%, #e8f0fe 40%, #f0f4ff 100%);
+    }
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar for overflow-x sections */
+/* ── Typography utilities ─────────────────────────────────────── */
+.font-inter {
+    font-family: var(--font-inter), sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.font-montserrat {
+    font-family: var(--font-montserrat), sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
     height: 8px;
 }
@@ -40,11 +65,10 @@ html {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(139, 92, 246, 0.3);
-    /* primary color with opacity */
+    background-color: rgba(37, 99, 235, 0.3);
     border-radius: 20px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(139, 92, 246, 0.5);
+    background-color: rgba(37, 99, 235, 0.5);
 }

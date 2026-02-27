@@ -28,7 +28,7 @@ export default function Footer() {
 
                     {/* Services */}
                     <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-6">Servicios</h4>
+                        <h4 className="font-bold text-deep-blue dark:text-white mb-6">Servicios</h4>
                         <ul className="space-y-4">
                             <li><a href="#services" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Diseño Web</a></li>
                             <li><a href="#services" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">E-commerce Shopfify</a></li>
@@ -38,7 +38,7 @@ export default function Footer() {
 
                     {/* Company */}
                     <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-6">Compañía</h4>
+                        <h4 className="font-bold text-deep-blue dark:text-white mb-6">Compañía</h4>
                         <ul className="space-y-4">
                             <li><a href="#founder" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Sobre Nosotros</a></li>
                             <li><a href="#clients" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Casos de Éxito</a></li>
@@ -49,7 +49,7 @@ export default function Footer() {
 
                     {/* Legal */}
                     <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-6">Legal</h4>
+                        <h4 className="font-bold text-deep-blue dark:text-white mb-6">Legal</h4>
                         <ul className="space-y-4">
                             <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Política de Privacidad</a></li>
                             <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition text-sm">Términos de Servicio</a></li>

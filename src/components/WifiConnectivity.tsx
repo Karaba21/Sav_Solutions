@@ -4,10 +4,7 @@ import React from 'react';
 
 export default function WifiConnectivity() {
     return (
-        <section className="py-24 bg-gradient-to-br from-white to-blue-50 dark:from-surface-dark dark:to-slate-900 overflow-hidden relative" id="wifi-connectivity">
-            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
+        <section className="py-24 bg-white overflow-hidden relative" id="wifi-connectivity">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div className="relative order-2 lg:order-1">
@@ -24,8 +21,8 @@ export default function WifiConnectivity() {
                                     <span className="material-icons-round">wifi</span>
                                 </div>
                                 <div>
-                                    <p className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Cobertura</p>
-                                    <p className="text-sm font-bold text-gray-900 dark:text-white">100% Estable</p>
+                                    <p className="font-inter text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Cobertura</p>
+                                    <p className="font-inter text-sm font-bold text-deep-blue dark:text-white">100% Estable</p>
                                 </div>
                             </div>
 
@@ -34,26 +31,25 @@ export default function WifiConnectivity() {
                                     <span className="material-icons-round">gpp_good</span>
                                 </div>
                                 <div>
-                                    <p className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Seguridad</p>
-                                    <p className="text-sm font-bold text-gray-900 dark:text-white">WPA3 Activo</p>
+                                    <p className="font-inter text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Seguridad</p>
+                                    <p className="font-inter text-sm font-bold text-deep-blue dark:text-white">WPA3 Activo</p>
                                 </div>
                             </div>
                         </div>
-                        {/* Background decoration elements */}
                         <div className="absolute -z-10 -bottom-6 -left-6 w-full h-full border-2 border-primary/10 rounded-3xl"></div>
                         <div className="absolute -z-10 -top-6 -right-6 w-full h-full border-2 border-blue-500/10 rounded-3xl"></div>
                     </div>
 
                     <div className="order-1 lg:order-2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold text-xs uppercase tracking-wider mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold text-xs uppercase tracking-wider mb-6 font-inter">
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                             WiFi & Conectividad
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                        <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-600 mb-6 leading-tight">
                             Potencia tu espacio con <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">WiFi Inteligente</span>
                         </h2>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
+                        <p className="font-inter text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
                             Diseñamos redes robustas para hogares y empresas. Olvidate de las desconexiones. Aseguramos &quot;No more dead zones&quot; con una configuración profesional y hardware de última generación.
                         </p>
 
@@ -63,8 +59,8 @@ export default function WifiConnectivity() {
                                     <span className="material-icons-round text-2xl">router</span>
                                 </div>
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Instalación de Routers & Mesh</h4>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Implementamos sistemas Mesh que crean una malla única de cobertura, eliminando puntos muertos.</p>
+                                    <h4 className="font-montserrat text-lg font-bold text-deep-blue dark:text-white mb-1">Instalación de Routers & Mesh</h4>
+                                    <p className="font-inter text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Implementamos sistemas Mesh que crean una malla única de cobertura, eliminando puntos muertos.</p>
                                 </div>
                             </div>
 
@@ -73,8 +69,8 @@ export default function WifiConnectivity() {
                                     <span className="material-icons-round text-2xl">signal_wifi_4_bar</span>
                                 </div>
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Optimización de Señal</h4>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Análisis de interferencias y selección de canales para garantizar la máxima velocidad contratada.</p>
+                                    <h4 className="font-montserrat text-lg font-bold text-deep-blue dark:text-white mb-1">Optimización de Señal</h4>
+                                    <p className="font-inter text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Análisis de interferencias y selección de canales para garantizar la máxima velocidad contratada.</p>
                                 </div>
                             </div>
 
@@ -83,8 +79,8 @@ export default function WifiConnectivity() {
                                     <span className="material-icons-round text-2xl">security</span>
                                 </div>
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Network Security</h4>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Protección avanzada contra intrusos y segmentación de redes para invitados y dispositivos IoT.</p>
+                                    <h4 className="font-montserrat text-lg font-bold text-deep-blue dark:text-white mb-1">Network Security</h4>
+                                    <p className="font-inter text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Protección avanzada contra intrusos y segmentación de redes para invitados y dispositivos IoT.</p>
                                 </div>
                             </div>
 
@@ -93,14 +89,14 @@ export default function WifiConnectivity() {
                                     <span className="material-icons-round text-2xl">videogame_asset</span>
                                 </div>
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Ultra-Low Latency</h4>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Configuración ideal para Gaming competitivo y Streaming 4K sin interrupciones.</p>
+                                    <h4 className="font-montserrat text-lg font-bold text-deep-blue dark:text-white mb-1">Ultra-Low Latency</h4>
+                                    <p className="font-inter text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Configuración ideal para Gaming competitivo y Streaming 4K sin interrupciones.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <a href="#contact" className="inline-flex justify-center items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-primary/25">
+                            <a href="#contact" className="font-inter inline-flex justify-center items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-primary/25">
                                 Solicitar Auditoría Técnica
                                 <span className="material-icons-round">arrow_forward</span>
                             </a>
