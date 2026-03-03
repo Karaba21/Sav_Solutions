@@ -111,11 +111,11 @@ const services = [
         imageLeft: false,
     },
     {
-        title: "Ecommerce / Tienda Online",
+        title: "E-commerce / Tienda Online",
         description:
-            "Implementamos tiendas en Tiendanube o WooCommerce según tu estrategia, cuidando el catálogo, los medios de pago y la experiencia completa de compra.",
+            "Implementamos tiendas en Shopify según tu estrategia, cuidando el catálogo, los medios de pago y la experiencia completa de compra.",
         bullets: [
-            "Tiendanube y WooCommerce",
+            "Integración completa con Shopify",
             "Medios de pago y checkout optimizado",
             "Gestión de catálogo y stock",
         ],
