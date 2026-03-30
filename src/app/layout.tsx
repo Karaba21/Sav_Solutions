@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
         {children}
+        <WhatsAppButton />
       </body>
     </html >
   );

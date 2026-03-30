@@ -56,17 +56,11 @@ export default function Header() {
                         <a href="#services" className="font-inter text-gray-600 hover:text-gray-900 font-medium text-[15px] transition-colors duration-150">
                             Servicios
                         </a>
-                        <a href="#wifi-connectivity" className="font-inter text-gray-600 hover:text-gray-900 font-medium text-[15px] transition-colors duration-150">
-                            WiFi & Redes
-                        </a>
                         <a href="#clients" className="font-inter text-gray-600 hover:text-gray-900 font-medium text-[15px] transition-colors duration-150">
                             Clientes
                         </a>
                         <a href="#plans" className="font-inter text-gray-600 hover:text-gray-900 font-medium text-[15px] transition-colors duration-150">
                             Planes
-                        </a>
-                        <a href="#founder" className="font-inter text-gray-600 hover:text-gray-900 font-medium text-[15px] transition-colors duration-150">
-                            Nosotros
                         </a>
                         <a
                             href="#contact"
@@ -92,10 +86,8 @@ export default function Header() {
             {isMobileMenuOpen && (
                 <div className="md:hidden absolute top-[64px] left-0 w-full bg-white border-b border-gray-100 shadow-lg py-4 px-6 flex flex-col gap-1">
                     <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="font-inter text-gray-700 font-medium py-3 border-b border-gray-100 text-[15px]">Servicios</a>
-                    <a href="#wifi-connectivity" onClick={() => setIsMobileMenuOpen(false)} className="font-inter text-gray-700 font-medium py-3 border-b border-gray-100 text-[15px]">WiFi & Redes</a>
                     <a href="#clients" onClick={() => setIsMobileMenuOpen(false)} className="font-inter text-gray-700 font-medium py-3 border-b border-gray-100 text-[15px]">Clientes</a>
                     <a href="#plans" onClick={() => setIsMobileMenuOpen(false)} className="font-inter text-gray-700 font-medium py-3 border-b border-gray-100 text-[15px]">Planes</a>
-                    <a href="#founder" onClick={() => setIsMobileMenuOpen(false)} className="font-inter text-gray-700 font-medium py-3 border-b border-gray-100 text-[15px]">Nosotros</a>
                     <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="font-inter bg-primary hover:bg-primary-dark text-white text-center py-3.5 rounded-full font-semibold mt-3 text-[15px] tracking-wide">Contactar</a>
                 </div>
             )}

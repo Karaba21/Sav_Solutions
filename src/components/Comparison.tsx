@@ -75,14 +75,14 @@ export default function Comparison() {
                     <div className="order-1 md:order-2">
                         <div
                             ref={containerRef}
-                            className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden cursor-ew-resize select-none shadow-xl rounded-2xl"
+                            className="relative w-full aspect-[2908/1648] bg-gray-100 overflow-hidden cursor-ew-resize select-none shadow-xl rounded-2xl"
                             onMouseDown={(e) => handleInteractionStart(e.clientX)}
                             onTouchStart={(e) => handleInteractionStart(e.touches[0].clientX)}
                         >
                             {/* Base Image (After - Right Side) */}
                             <div className="absolute inset-0 pointer-events-none">
                                 <Image
-                                    src="/split2.png"
+                                    src="/assets/cockpitdespues.png"
                                     alt="Sitio web moderno después del rediseño"
                                     fill
                                     className="object-cover object-center"
@@ -97,7 +97,7 @@ export default function Comparison() {
                                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                             >
                                 <Image
-                                    src="/split1.png"
+                                    src="/assets/cockpitantes.png"
                                     alt="Sitio web antiguo antes del rediseño"
                                     fill
                                     className="object-cover object-center"

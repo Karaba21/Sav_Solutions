@@ -39,6 +39,18 @@ const cases = [
         href: "https://infiniteagencycrm.com/",
         description: "Diseñamos una landing page de alta conversión que aumentó significativamente la captación de nuevos clientes.",
     },
+    {
+        name: "Growit",
+        category: "Plataforma Digital",
+        image: "/assets/growit.png",
+        stat: "+80%",
+        statLabel: "Tráfico Orgánico",
+        tag: "E-commerce",
+        tagColor: "bg-emerald-100 text-emerald-700",
+        accentColor: "#10B981",
+        href: "https://growituruguay.com/",
+        description: "Construimos una tienda online de alto rendimiento que triplicó sus ventas digitales en los primeros tres meses.",
+    },
 ];
 
 export default function Portfolio() {

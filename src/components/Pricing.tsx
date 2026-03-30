@@ -54,8 +54,8 @@ export default function Pricing() {
                         <div
                             key={plan.name}
                             className={`relative flex flex-col rounded-3xl p-8 border transition-shadow duration-300 ${plan.featured
-                                    ? "border-primary shadow-xl shadow-primary/10 bg-white"
-                                    : "border-gray-200 shadow-md bg-white"
+                                ? "border-primary shadow-xl shadow-primary/10 bg-white"
+                                : "border-gray-200 shadow-md bg-white"
                                 }`}
                         >
                             {/* Featured badge */}
@@ -71,8 +71,8 @@ export default function Pricing() {
                             <div className="flex items-center gap-3 mb-4">
                                 <div
                                     className={`w-10 h-10 rounded-xl flex items-center justify-center ${plan.featured
-                                            ? "bg-primary text-white"
-                                            : "bg-primary/10 text-primary"
+                                        ? "bg-primary text-white"
+                                        : "bg-primary/10 text-primary"
                                         }`}
                                 >
                                     <span className="material-icons-round text-xl">{plan.icon}</span>
@@ -83,14 +83,6 @@ export default function Pricing() {
                             </div>
 
                             <p className="font-inter text-sm text-gray-500 mb-6">{plan.tagline}</p>
-
-                            {/* Price */}
-                            <div className="mb-8">
-                                <span className="font-montserrat text-5xl font-extrabold text-primary">
-                                    {plan.price}
-                                </span>
-                                <span className="font-inter text-lg text-gray-400 ml-1">usd</span>
-                            </div>
 
                             {/* Feature list */}
                             <ul className="space-y-3 mb-10 flex-1">
@@ -111,8 +103,8 @@ export default function Pricing() {
                             <a
                                 href="#contact"
                                 className={`font-inter w-full py-3 rounded-full text-center font-semibold text-sm transition-all duration-200 ${plan.featured
-                                        ? "bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
-                                        : "border border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
+                                    ? "bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
+                                    : "border border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
                                     }`}
                             >
                                 Solicitar info
